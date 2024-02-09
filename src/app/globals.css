@@ -2,26 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    @apply bg-slate-200
+}
+
+.changedInput input[type='text'], .addedLinkBtn input[type='text']  , textarea {
+    @apply w-full bg-gray-100 block mb-2 py-2 px-4
+}
+
+label.input-label {
+
+    @apply uppercase text-gray-500 font-semibold text-xs mb-2  ;
+
+}
+
+.radioTogglers {
+    @apply p-1 bg-gray-200 inline-flex;
+
+}
+
+.radioTogglers div {
+
+    @apply  p-2 px-4 text-gray-500 flex items-center gap-2 cursor-pointer
+
+}
+
+.radioTogglers input[type='radio'] {
+    @apply hidden
+}
+
+
+.radioTogglers input[type='radio']:checked + div {
+    @apply bg-white text-blue-500;
+}
+
+.sortable-ghost {
+    opacity: .4;
+
 }
